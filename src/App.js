@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import InnerWrap from './UI/InnerWrapper';
 import SubscribeModal from './SubscriptionModal/SubscriptionModal';
 import SubscribeButton from './UI/Button';
@@ -44,7 +44,7 @@ const App = () => {
     if (subscriptions.length > 0) setShowModal(true);
   }
   
-  const updateSubscribedList = () => {
+  useEffect(() => {
     let _subscriptions = cards.filter(card => {
       return card.isChecked === true;
     });
@@ -53,7 +53,7 @@ const App = () => {
     setSubscriptions(_subscriptions);
     
     console.log('subscriptions: ', subscriptions);
-  }
+  }, [cards]);
   
   const updateSubscriptionCheckedState = (id, isSubscribed) => {
     console.group();
@@ -63,15 +63,9 @@ const App = () => {
     console.groupEnd();
     
     // https://www.codegrepper.com/code-examples/javascript/react+state+array+of+objects
-    let obj = cards.find(card => card.id === id);
-    let cardIndex = cards.indexOf(obj);
-    let temp_state = [...cards];
-    let temp_element = { ...temp_state[cardIndex] };
-    temp_element.isChecked = isSubscribed
-    temp_state[cardIndex] = temp_element;
-    
-    setCards(temp_state);
-    updateSubscribedList();
+    let tmp = [...cards];
+    tmp.find(card => card.id === id).isChecked = isSubscribed;
+    setCards(tmp);
   }
   
   return (
