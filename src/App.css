@@ -65,12 +65,31 @@ body {
 
 .subscription {
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
-  width: calc(25% - 20px);
+  width: calc(100% - 20px);
   margin: 10px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
 }
+
+@media (min-width: 500px) {
+  .subscription {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (min-width: 768px) {
+  .subscription {
+    width: calc(33.333% - 20px);
+  }
+}
+
+@media (min-width: 950px) {
+  .subscription {
+    width: calc(25% - 20px);
+  }
+}
+
 
 .extra-stuff .inner-wrap {
   display: flex;
@@ -105,6 +124,7 @@ body {
 
 .subscribe-bar button {
   font-size: 20px;
+  margin-left: 20px;
 }
 
 .subscribe-bar button.active {
@@ -145,4 +165,9 @@ body {
   right: 0;
   background: rgba(0,0,0,.5);
   display: flex;
+}
+.subscribe-button {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
 }

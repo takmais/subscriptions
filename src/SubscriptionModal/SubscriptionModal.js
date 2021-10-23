@@ -11,6 +11,7 @@ const SubscribeModal = props => {
         {props.subscriptions.map(subscription => {
           return <li key={subscription.id}>{subscription.title}</li>
         })}
+        <button type="submit" className="subscribe-button">Subscribe</button>
       </div>
     </div>
   )

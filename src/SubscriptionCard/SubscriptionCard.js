@@ -11,7 +11,7 @@ const SubscriptionCard = ({id, title, isChecked, handleUpdateSubscription}) => {
         <p>(Quarterly) The most popular content on bcg.com.</p>
       </div>
       <div className="inputs">
-        <input type="checkbox" onChange={handleSubscribe} />
+        <input type="checkbox" onChange={handleSubscribe} checked={isChecked}/>
         <label>Subscribe</label>
       </div>
      </div>  
