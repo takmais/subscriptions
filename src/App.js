@@ -53,14 +53,11 @@ const App = () => {
     setSubscriptions(_subscriptions);
   }, [cards]);
   
+  const closeModal = () => {
+    setShowModal(false);
+  }
+
   const updateSubscriptionCheckedState = (id, isSubscribed) => {
-    console.group();
-    console.log('updating subscriptions Checked State');
-    console.log('id: ', id);
-    console.log('isSubscribed: ', isSubscribed);
-    console.groupEnd();
-    
-    // https://www.codegrepper.com/code-examples/javascript/react+state+array+of+objects
     let tmp = [...cards];
     tmp.find(card => card.id === id).isChecked = isSubscribed;
     setCards(tmp);
@@ -78,7 +75,7 @@ const App = () => {
                                title={card.title}/>)}
         </InnerWrap>
       </div>
-      {showModal && <SubscribeModal subscriptions={subscriptions}/>}
+      {showModal && <SubscribeModal subscriptions={subscriptions} closeModal={closeModal} />}
       <SubscribeButton checkForSubscriptions={() => { setShowModal(true) }} isClickable={showSubmitButton} />
     </>
    )

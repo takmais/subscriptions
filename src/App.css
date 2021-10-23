@@ -122,13 +122,20 @@ body {
   text-align: right;
 }
 
-.subscribe-modal.subscribe-modal-contents {
+.subscribe-modal .subscribe-modal-contents {
   padding: 20px;
   background: #fff;
   margin: auto;
   width: 50%;
+  position: relative;
 }
 
+.subscribe-modal .close-modal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
 .subscribe-modal {
   position: fixed;
   z-index: 100;

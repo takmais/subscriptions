@@ -4,6 +4,7 @@ const SubscribeModal = props => {
   return (
     <div className="subscribe-modal">
       <div className="subscribe-modal-contents">
+        <span className="close-modal" onClick={props.closeModal}>Close Modal</span>
         <h2>You are subscribing to:</h2>
         <label htmlFor="email">Email</label>
         <input type="text" id="email" />
