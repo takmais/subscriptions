@@ -8,6 +8,7 @@ import './App.css';
 const App = () => {
   const [subscriptions, setSubscriptions] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [showSubmitButton, setShowSubmitButton] = useState(false);
   const [cards, setCards] = useState([
     {
       title: 'Top Ten Most Read',
@@ -39,20 +40,17 @@ const App = () => {
       isChecked: false
     }
   ])
-  
-  const onCheckForSubscriptions = () => {
-    if (subscriptions.length > 0) setShowModal(true);
-  }
+
+  useEffect(() => {
+    setShowSubmitButton(subscriptions.length > 0);
+  }, [subscriptions]);
   
   useEffect(() => {
     let _subscriptions = cards.filter(card => {
       return card.isChecked === true;
     });
     
-    console.log('_subscriptions: ', _subscriptions);
     setSubscriptions(_subscriptions);
-    
-    console.log('subscriptions: ', subscriptions);
   }, [cards]);
   
   const updateSubscriptionCheckedState = (id, isSubscribed) => {
@@ -81,7 +79,7 @@ const App = () => {
         </InnerWrap>
       </div>
       {showModal && <SubscribeModal subscriptions={subscriptions}/>}
-      <SubscribeButton checkForSubscriptions={onCheckForSubscriptions} isClickable={subscriptions.length > 0 && 'active'} />
+      <SubscribeButton checkForSubscriptions={() => { setShowModal(true) }} isClickable={showSubmitButton} />
     </>
    )
 }

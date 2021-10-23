@@ -1,13 +1,13 @@
-const SubscriptionCard = props => {
+const SubscriptionCard = ({id, title, isChecked, handleUpdateSubscription}) => {
   const handleSubscribe = event => {
-    props.handleUpdateSubscription(props.id, event.target.checked)
+    handleUpdateSubscription(id, event.target.checked)
   }
-  let subscriptionClass = props.isChecked ? "isSubscribed subscription" : "subscription"
+  let subscriptionClass = isChecked ? "isSubscribed subscription" : "subscription"
   return (
     <div className={subscriptionClass}>
       <img src="https://via.placeholder.com/200x100" />
       <div className="inner">
-        <h3 className="title">{props.title}</h3>
+        <h3 className="title">{title}</h3>
         <p>(Quarterly) The most popular content on bcg.com.</p>
       </div>
       <div className="inputs">

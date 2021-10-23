@@ -1,11 +1,11 @@
 import React from 'react';
 import InnerWrap from './InnerWrapper';
 
-const SubscribeButton = props => {
+const SubscribeButton = ({isClickable, checkForSubscriptions}) => {
   return (
     <div className="subscribe-bar">
       <InnerWrap>
-        <button className={props.isClickable === 'active' && 'active'} type="button" onClick={props.checkForSubscriptions}>Review Subscriptions</button>
+        <button className={isClickable ? 'active' : '' } type="button" onClick={checkForSubscriptions}>Review Subscriptions</button>
       </InnerWrap>
     </div>
   )  
