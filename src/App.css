@@ -147,11 +147,15 @@ body {
 }
 
 .subscribe-modal .subscribe-modal-contents {
-  padding: 20px;
+  padding: 20px 20px 50px 20px;
   background: #fff;
   margin: auto;
   width: 50%;
   position: relative;
+}
+
+.subscribe-modal-contents li {
+  font-weight: bold;
 }
 
 .subscribe-modal .close-modal {
@@ -176,8 +180,12 @@ body {
   color: red;
   cursor: pointer;
 }
-.subscribe-button {
+.subscribe-button,
+.signup {
   position: absolute;
   right: 20px;
   bottom: 20px;
+}
+.signup {
+  right: 100px;
 }
