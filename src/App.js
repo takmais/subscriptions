@@ -3,6 +3,8 @@ import InnerWrap from './UI/InnerWrapper';
 import SubscribeModal from './SubscriptionModal/SubscriptionModal';
 import SubscribeButton from './UI/Button';
 import SubscriptionCard from './SubscriptionCard/SubscriptionCard';
+import TopOfPage from './UI/static-top-of-page';
+import ExtraStuff from './UI/static-extra-stuff';
 import './App.css';
 
 const App = () => {
@@ -79,13 +81,7 @@ const App = () => {
   
   return (
     <>
-      <div className="top-of-page">
-        <InnerWrap>
-          <h1>Subscriptions</h1>
-          <div className="subtitle">Stay connected with BCG's latest content. Select from our newsletters below and enter your email to subscribe.</div>
-          <h2>Featured Newsletters</h2>
-        </InnerWrap>
-      </div>
+      <TopOfPage />
 
       <div className="subscriptions">
         <InnerWrap>
@@ -101,22 +97,7 @@ const App = () => {
       {showModal && <SubscribeModal subscriptions={subscriptions} closeModal={closeModal} onUnsubscribe={updateSubscriptionCheckedState}/>}
       <SubscribeButton checkForSubscriptions={() => { setShowModal(true) }} isClickable={showSubmitButton} onClearSelection={clearSelections}/>
 
-      <div className="extra-stuff">
-        <InnerWrap>
-          <div className="column">
-            <h2>E-Alerts</h2>
-            <p>(Monthly) The latest BCG content, curated based on your specified areas of interest. Select your topics below</p>
-            <div class="dropdown"> Select Industries</div>
-            <div class="dropdown"> Select Business Topic</div>
-          </div>
-          <div className="column">
-            <h2>Regional Publications</h2>
-            <input type="checkbox" />
-            <label>BCG Bytes from Australia and New Zealand</label>
-            <p className="lighter">(Biweekly) Stay connected to ANZ's business updates and regional focus topics.</p>
-          </div>
-        </InnerWrap>
-      </div>
+      <ExtraStuff />
     </>
    )
 }
