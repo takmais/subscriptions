@@ -69,6 +69,14 @@ const App = () => {
     setCards(_cards);
   }
 
+  const selectAllSubscriptions = () => {
+    let _cards = [...cards];
+    _cards.map(card => {
+      return card.isChecked = true;
+    })
+    setCards(_cards);
+  }
+
   const closeModal = () => {
     setShowModal(false);
   }
@@ -95,7 +103,8 @@ const App = () => {
       </div>
 
       {showModal && <SubscribeModal subscriptions={subscriptions} closeModal={closeModal} onUnsubscribe={updateSubscriptionCheckedState}/>}
-      <SubscribeButton checkForSubscriptions={() => { setShowModal(true) }} isClickable={showSubmitButton} onClearSelection={clearSelections}/>
+
+      <SubscribeButton checkForSubscriptions={() => { setShowModal(true) }} isClickable={showSubmitButton} onClearSelection={clearSelections} onSelectAll={selectAllSubscriptions}/>
 
       <ExtraStuff />
     </>
