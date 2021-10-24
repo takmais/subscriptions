@@ -56,6 +56,9 @@ body {
   color: #fff;
   margin-top: auto;
 }
+.subscription .inputs label {
+  cursor: pointer;
+}
 
 .subscription .inner {
   padding: 20px;
@@ -165,6 +168,12 @@ body {
   right: 0;
   background: rgba(0,0,0,.5);
   display: flex;
+}
+
+.subscribe-modal .remove-subscription {
+  font-weight: bold;
+  color: red;
+  cursor: pointer;
 }
 .subscribe-button {
   position: absolute;

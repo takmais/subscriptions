@@ -38,11 +38,17 @@ const App = () => {
       title: 'Perspectives on Strategy and Value',
       id: Math.random(),
       isChecked: false
+    },{
+      title: 'Shape the Future of Health Cars',
+      id: Math.random(),
+      isChecked: false
     }
   ])
 
   useEffect(() => {
     setShowSubmitButton(subscriptions.length > 0);
+
+    if (subscriptions.length === 0) setShowModal(false);
   }, [subscriptions]);
   
   useEffect(() => {
@@ -52,7 +58,7 @@ const App = () => {
     
     setSubscriptions(_subscriptions);
   }, [cards]);
-  
+
   const clearSelections = () => {
     let _cards = [...cards];
     _cards.map(card => {
@@ -73,6 +79,14 @@ const App = () => {
   
   return (
     <>
+      <div className="top-of-page">
+        <InnerWrap>
+          <h1>Subscriptions</h1>
+          <div className="subtitle">Stay connected with BCG's latest content. Select from our newsletters below and enter your email to subscribe.</div>
+          <h2>Featured Newsletters</h2>
+        </InnerWrap>
+      </div>
+
       <div className="subscriptions">
         <InnerWrap>
           {cards.map(card => <SubscriptionCard 
@@ -83,8 +97,26 @@ const App = () => {
                                title={card.title}/>)}
         </InnerWrap>
       </div>
-      {showModal && <SubscribeModal subscriptions={subscriptions} closeModal={closeModal} />}
+
+      {showModal && <SubscribeModal subscriptions={subscriptions} closeModal={closeModal} onUnsubscribe={updateSubscriptionCheckedState}/>}
       <SubscribeButton checkForSubscriptions={() => { setShowModal(true) }} isClickable={showSubmitButton} onClearSelection={clearSelections}/>
+
+      <div className="extra-stuff">
+        <InnerWrap>
+          <div className="column">
+            <h2>E-Alerts</h2>
+            <p>(Monthly) The latest BCG content, curated based on your specified areas of interest. Select your topics below</p>
+            <div class="dropdown"> Select Industries</div>
+            <div class="dropdown"> Select Business Topic</div>
+          </div>
+          <div className="column">
+            <h2>Regional Publications</h2>
+            <input type="checkbox" />
+            <label>BCG Bytes from Australia and New Zealand</label>
+            <p className="lighter">(Biweekly) Stay connected to ANZ's business updates and regional focus topics.</p>
+          </div>
+        </InnerWrap>
+      </div>
     </>
    )
 }

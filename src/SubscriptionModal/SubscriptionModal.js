@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const SubscribeModal = props => {
+  const handleUnsubscribe = (id) => {
+    props.onUnsubscribe(id, false)
+  }
   return (
     <div className="subscribe-modal">
       <div className="subscribe-modal-contents">
@@ -8,9 +11,11 @@ const SubscribeModal = props => {
         <h2>You are subscribing to:</h2>
         <label htmlFor="email">Email</label>
         <input type="text" id="email" />
-        {props.subscriptions.map(subscription => {
-          return <li key={subscription.id}>{subscription.title}</li>
-        })}
+        <ul>
+          {props.subscriptions.map(subscription => {
+            return <li key={subscription.id}>{subscription.title} <span className="remove-subscription" onClick={() => handleUnsubscribe(subscription.id)}>(X)</span></li>
+          })}
+        </ul>
         <button type="submit" className="subscribe-button">Subscribe</button>
       </div>
     </div>
