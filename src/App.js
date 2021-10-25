@@ -102,9 +102,16 @@ const App = () => {
         </InnerWrap>
       </div>
 
-      {showModal && <SubscribeModal subscriptions={subscriptions} closeModal={closeModal} onUnsubscribe={updateSubscriptionCheckedState}/>}
+      {showModal && <SubscribeModal 
+        subscriptions={subscriptions} 
+        closeModal={closeModal} 
+        onUnsubscribe={updateSubscriptionCheckedState}/>}
 
-      <SubscribeButton checkForSubscriptions={() => { setShowModal(true) }} isClickable={showSubmitButton} onClearSelection={clearSelections} onSelectAll={selectAllSubscriptions}/>
+      <SubscribeButton 
+        checkForSubscriptions={() => { setShowModal(true) }} 
+        isClickable={showSubmitButton} 
+        onClearSelection={clearSelections} 
+        onSelectAll={selectAllSubscriptions}/>
 
       <ExtraStuff />
     </>

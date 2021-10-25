@@ -12,7 +12,7 @@ const SubscriptionCard = ({id, title, isChecked, handleUpdateSubscription}) => {
       </div>
       <div className="inputs">
         <input type="checkbox" onChange={handleSubscribe} checked={isChecked} id={id}/>
-        <label htmlFor={id}>Subscribe</label>
+        <label htmlFor={id}>Select</label>
       </div>
      </div>  
    )
