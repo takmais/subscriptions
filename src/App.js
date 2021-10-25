@@ -41,7 +41,15 @@ const App = () => {
       id: Math.random(),
       isChecked: false
     },{
-      title: 'Shape the Future of Health Cars',
+      title: 'Shape the Future of Health Care',
+      id: Math.random(),
+      isChecked: false
+    },{
+      title: 'The Sustainable Advantage',
+      id: Math.random(),
+      isChecked: false
+    },{
+      title: 'How to by BCG',
       id: Math.random(),
       isChecked: false
     }
